@@ -1,0 +1,29 @@
+<%- include ../include/head %>
+<%- include ../include/ehr-header %>
+
+
+
+
+<div data-am-widget="list_news" class="am-list-news am-list-news-default">
+
+  <div class="am-list-news-bd">
+    <ul class="am-list">
+      
+ 		<% ehrs.forEach(function(ehr){ %>
+        <li class="am-g am-list-item-dated">
+        	<a href="/ehr/ehrDetail?id=<%= ehr.id %>" style="padding: 0;">
+				<p class="am-margin-xs am-text-md">假别:<%= ehr.type %> <span class="am-icon-chevron-right am-fr"></span></p>
+				<p class="am-margin-xs am-text-sm">状态:<%= ehr.status %><small class="am-fr">申请时间:<%= ehr.applyTime %></small></p>
+        	</a>
+
+        </li>
+        <% }) %>
+ 
+    </ul>
+  </div>
+</div>
+
+
+
+<%- include ../include/ehr-footer %>
+<%- include ../include/foot %>

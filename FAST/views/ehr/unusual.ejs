@@ -1,0 +1,29 @@
+<%- include ../include/head %>
+<%- include ../include/ehr-header %>
+
+
+
+
+<div data-am-widget="list_news" class="am-list-news am-list-news-default">
+
+  <div class="am-list-news-bd">
+    <ul class="am-list">
+      
+ 		<% unusual.forEach(function(unusual){ %>
+        <li class="am-g am-list-item-dated">
+        	<a href="/ehr/ehrDetail?id=<%= unusual.id %>" style="padding: 0;">
+				<p class="am-margin-xs am-text-md">异常类型:<%= unusual.type %> <span class="am-icon-chevron-right am-fr"></span></p>
+				<p class="am-margin-xs am-text-sm">异常状态:<%= unusual.status %><small class="am-fr">异常时间:<%= unusual.applyTime %></small></p>
+        	</a>
+
+        </li>
+        <% }) %>
+ 
+    </ul>
+  </div>
+</div>
+
+
+
+<%- include ../include/ehr-footer %>
+<%- include ../include/foot %>

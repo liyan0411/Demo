@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>时间轴</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="css/times-axis.css">
+
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+		 <div id="calendar" class="calendar">
+            <div class="times-axis">
+                <div class="times-base">
+                    <div class="circle"></div>
+                    <div class="hollow"></div>
+                </div>
+                <div class="events">
+                    <div class="year">2018</div>
+                    <div class="desc">
+                        <p>人工智能和大数据 </p>
+                        <p>angularJs,vue,react三驾马车</p>
+                    </div>
+                </div>
+            </div>
+            <div class="times-axis">
+                <div class="times-base">
+                    <div class="circle"></div>
+                    <div class="hollow"></div>
+                </div>
+                <div class="events">
+                    <div class="year">2017</div>
+                    <div class="desc">
+                        <p>简化web设计、丰富用户体验、不断发展的安全挑战  </p>
+                    </div>
+                </div>
+            </div>
+            <div class="times-axis">
+                <div class="times-base">
+                    <div class="circle"></div>
+                    <div class="hollow"></div>
+                </div>
+                <div class="events">
+                    <div class="year">2016</div>
+                    <div class="desc">
+                        <p>ECMAScript演变，渐进式的Web App </p>
+                        <p>允许以同步的方式编写异步代码  </p>
+                    </div>
+                </div>
+            </div>
+            <div class="times-axis">
+                <div class="times-base">
+                    <div class="circle"></div>
+                    <div class="hollow"></div>
+                </div>
+                <div class="events">
+                    <div class="year">2015</div>
+                    <div class="desc">
+                        <p>观念转变，前端工业化生产 </p>
+                        <p>出现了一大批自动化构建工具</p>
+                        <p>格外引人注目的框架是，类 React</p>
+                    </div>
+                </div>
+            </div>
+            <div class="times-axis">
+                <div class="times-base">
+                    <div class="circle"></div>
+                    <div class="hollow"></div>
+                </div>
+                <div class="events">
+                    <div class="year">2014</div>
+                    <div class="desc">
+                        <p>移动端崛起 </p>
+                        <p>2014 是颠覆式的一年，前端发展在这一年开始形成了一个短暂的稳定格局。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="times-axis">
+                <div class="times-base">
+                    <div class="circle"></div>
+                    <div class="hollow"></div>
+                </div>
+                <div class="events">
+                    <div class="year">2013</div>
+                    <div class="desc">
+                        <p>爆发式增长，百花齐放</p>
+                        <p>Web Components 的出现给前端开发开辟了新思路</p>
+                    </div>
+                </div>
+            </div>
+            <div class="times-axis">
+                <div class="times-base">
+                    <div class="circle"></div>
+                    <div class="hollow"></div>
+                </div>
+                <div class="events">
+                    <div class="year">2012</div>
+                    <div class="desc">
+                        <p>响应式开发，工程化推进</p>
+                        <p>随着硬件技术的发展，各手机厂商又开始骚动起来</p>
+                        <p>多终端适配，多分辨率适配，远程调试成为开发难题</p>
+                    </div>
+                </div>
+            </div>
+            <div class="times-axis">
+                <div class="times-base">
+                    <div class="circle"></div>
+                    <div class="hollow"></div>
+                </div>
+                <div class="events">
+                    <div class="year">2011</div>
+                    <div class="desc">
+                        <p>HTML5 成主流，Flash 堪忧</p>
+                        <p>HTML5 游戏火爆到了一个高潮，他的低门槛和高收益让很多开发者眼红</p>
+                        <p>移动端开发工具和调试工具也日益成熟</p>
+                    </div>
+                </div>
+            </div>
+            <div class="times-axis">
+                <div class="times-base">
+                    <div class="circle"></div>
+                    <div class="hollow"></div>
+                </div>
+                <div class="events">
+                    <div class="year">2010</div>
+                    <div class="desc">
+                        <p> 各大巨头都看清了 HTML5 是 web 发展的未来 </p>
+                        <p> W3C 宣布成立 Web 性能工作组 </p>
+                    </div>
+                </div>
+            </div>
+            <div class="times-axis">
+                <div class="times-base">
+                    <div class="circle"></div>
+                    <div class="hollow"></div>
+                </div>
+                <div class="events">
+                    <div class="year">2009</div>
+                    <div class="desc">
+                        <p>天下武功出谷歌  </p>
+                        <p>Chrome使用Apple的开源内核webkit，良好的设计标准和市场反应；促进浏览器快速迭代，让IE在windows10中彻底消失。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="times-axis">
+                <div class="times-base">
+                    <div class="circle"></div>
+                    <div class="hollow"></div>
+                </div>
+                <div class="events">
+                    <div class="year">2006</div>
+                    <div class="desc">
+                        <p>本着拯救菜鸟，让他们do more的宗旨，jquery诞生</p>
+                        <p>jQuery诞生的意义，良好的兼容、极大简化了dom操作，使开发效率大大提升</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="times-axis">
+                <div class="times-base">
+                    <div class="circle"></div>
+                    <div class="hollow"></div>
+                </div>
+                <div class="events">
+                    <div class="year">2003</div>
+                    <div class="desc">
+                        <p>Ajax: A New Approach to Web Applications</p>
+                        <p>ajax的出现，极大了提高了web的用户体验</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>  <!--  calendar   end-->
+	</div>
+</div>
+</body>
+</html>

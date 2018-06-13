@@ -1,6 +1,8 @@
 {
   "name": "fast",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "study",
+  "author": "liyan <541267924@qq.com>",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"

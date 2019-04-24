@@ -46,7 +46,7 @@ export const SearchWipper=styled.div`
 	.iconfont{
 		position:absolute;
 		right:20px;
-		bottom:14px;
+		top:14px;
 		width:30px;
 		border-radius:15px;
 		text-align:center;
@@ -113,4 +113,38 @@ export const Button = styled.div`
 	 color:#fff;
 	 background:#ec6149;
  }
+`
+export const SearchInfo=styled.div`
+ width:240px;
+ left:20px;
+ top:56px;
+ position:absolute;
+ padding:0 10px 10px 10px;
+ background:#fff;
+ box-shadow:0 0 8px rgba(0,0,0,.2);
+`
+export const SearchTitle=styled.div`
+	 color:#969696;
+	 margin:15px 0;
+	 line-height:20px;
+	 font-size:14px;
+`
+export const SearchInfoSwitch=styled.span`
+ 	font-size:13px;
+ 	float:right;
+`
+export const SearchInfoItem=styled.a`
+	display:block;
+	float:left;
+	margin:0 10px 10px 0;
+	line-height:20px;
+	border:1px solid #ddd;
+ 	font-size:12px;
+	 padding:0 5px;
+	 color:#333;
+	 border-radius:3px;
+`
+
+export const SearchInfoList=styled.div`
+	overflow:hidden;
 `

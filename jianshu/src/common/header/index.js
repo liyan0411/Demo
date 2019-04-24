@@ -10,7 +10,12 @@ import {
 	SearchWipper,
 	NacSearch,
 	Addition,
-	Button
+	Button,
+	SearchInfo,
+	SearchTitle,
+	SearchInfoSwitch,
+	SearchInfoItem,
+	SearchInfoList
 } from "./style.js";
 // const Header=(props)=>{]
 	// 无状态组件
@@ -23,7 +28,45 @@ class Header extends Component{
 	// 	super(props);
 
 	// }
+	
+	getLists(){
+		const {focused,mouseIn,list,page,totalPage,handleMouseEnter,handleMouseLeave,handleChangePage}=this.props;
+		const newList=list.toJS();
+		const pageList=[];
+		if(newList.length){
+			for(let i=((page-1)*10);i<page*10;i++){
+				if(newList[i]){
+					pageList.push(
+						<SearchInfoItem className="pointer" key={newList[i]}>{newList[i]}</SearchInfoItem>
+					)
+				}
+				
+			}
+		}
+		
+		if(focused||mouseIn){
+			return (
+				<SearchInfo 
+					onMouseEnter={()=>{handleMouseEnter()}}
+					onMouseLeave={()=>{handleMouseLeave()}}
+				>
+					<SearchTitle>
+						热门搜索
+						<SearchInfoSwitch className="pointer" onClick={()=>handleChangePage(page,totalPage)}>
+							换一换
+						</SearchInfoSwitch>
+					</SearchTitle>
+					<SearchInfoList>
+						{pageList}
+					</SearchInfoList>
+				</SearchInfo>
+			)
+		}else{
+			return null;
+		}
+	}
 	render(){
+		const {focused,handleInputFocus,handleInputBlur}=this.props;
 		return (
 			<div>
 				<HeaderWrapper>
@@ -36,14 +79,15 @@ class Header extends Component{
 							<i className="iconfont iconAa pointer"></i>
 						</NavItem>
 						<SearchWipper>
-							<CSSTransition in={this.props.focused} timeout={200} classNames="slide">
+							<CSSTransition in={focused} timeout={200} classNames="slide">
 								<Fragment>
 									<NacSearch
-										className={this.props.focused?'focused':''}
-										onFocus={(e)=>{this.props.handleInputFocus(e)}}
-										onBlur={(e)=>{this.props.handleInputBlur(e)}}
+										className={focused?'focused':''}
+										onFocus={(e)=>{handleInputFocus(e)}}
+										onBlur={(e)=>{handleInputBlur(e)}}
 									></NacSearch>
-									<i className={`iconfont iconfangdajing pointer ${this.props.focused?"focused":""}`}></i>
+									<i className={`iconfont iconfangdajing pointer ${focused?"focused":""}`}></i>
+									{this.getLists()}
 								</Fragment>
 							
 							</CSSTransition>
@@ -63,16 +107,37 @@ class Header extends Component{
 }
 const mapStateToProps=(state)=>{
 	return {
-		focused:state.header.focused
+		// focused:state.get("header").get("focused")
+		focused:state.getIn(["header","focused"]),
+		list:state.getIn(["header","List"]),
+		page:state.getIn(["header","page"]),
+		totalPage:state.getIn(["header","totalPage"]),
+		mouseIn:state.getIn(["header","mouseIn"]),
+
 	}	
 }
 const mapDispatchToProps=(dispatch)=>{
 	return {
 		handleInputFocus(){
+			dispatch(actionCreator.getList())
 			dispatch(actionCreator.searchFocus());
 		},
 		handleInputBlur(){
 			dispatch(actionCreator.searchBlur());
+		},
+		handleMouseEnter(){
+			dispatch(actionCreator.mouseEnter());
+		},
+		handleMouseLeave(){
+			dispatch(actionCreator.mouseLeave());	
+		},
+		handleChangePage(page,totalPage){
+			if(page<totalPage){
+				dispatch(actionCreator.changePage(page+1));	
+			}else{
+				dispatch(actionCreator.changePage(1));	
+			}
+			
 		}
 	}	
 }

@@ -1,4 +1,5 @@
 import React,{ Component,Fragment } from "react";
+import {Link} from "react-router-dom"
 import { connect } from "react-redux"
 import { CSSTransition } from 'react-transition-group';
 import { actionCreator } from "./store"
@@ -30,7 +31,16 @@ class Header extends Component{
 	// }
 	
 	getLists(){
-		const {focused,mouseIn,list,page,totalPage,handleMouseEnter,handleMouseLeave,handleChangePage}=this.props;
+		const {
+			focused,
+			mouseIn,
+			list,
+			page,
+			totalPage,
+			handleMouseEnter,
+			handleMouseLeave,
+			handleChangePage
+		}=this.props;
 		const newList=list.toJS();
 		const pageList=[];
 		if(newList.length){
@@ -40,10 +50,8 @@ class Header extends Component{
 						<SearchInfoItem className="pointer" key={newList[i]}>{newList[i]}</SearchInfoItem>
 					)
 				}
-				
 			}
 		}
-		
 		if(focused||mouseIn){
 			return (
 				<SearchInfo 
@@ -52,8 +60,8 @@ class Header extends Component{
 				>
 					<SearchTitle>
 						热门搜索
-						<SearchInfoSwitch className="pointer" onClick={()=>handleChangePage(page,totalPage)}>
-							换一换
+						<SearchInfoSwitch className="pointer" onClick={()=>handleChangePage(page,totalPage,this.spinIcon)}>
+							<i ref={(icon)=>{this.spinIcon=icon}} className="iconfont iconspin spins"></i>换一换
 						</SearchInfoSwitch>
 					</SearchTitle>
 					<SearchInfoList>
@@ -66,13 +74,16 @@ class Header extends Component{
 		}
 	}
 	render(){
-		const {focused,handleInputFocus,handleInputBlur}=this.props;
+		const {focused,handleInputFocus,handleInputBlur,list}=this.props;
 		return (
 			<div>
 				<HeaderWrapper>
-					<Logo href="/"/>
+					<Link to="/">
+						<Logo/>
+					</Link>
+					
 					<Nav>
-						<NavItem className="left active pointer">首页</NavItem>
+						<NavItem className="left active pointer"><Link to="/">首页</Link></NavItem>
 						<NavItem className="left pointer">下载App</NavItem>
 						<NavItem className="right pointer">登录</NavItem>
 						<NavItem className="right">
@@ -83,7 +94,7 @@ class Header extends Component{
 								<Fragment>
 									<NacSearch
 										className={focused?'focused':''}
-										onFocus={(e)=>{handleInputFocus(e)}}
+										onFocus={(e)=>{handleInputFocus(e,list)}}
 										onBlur={(e)=>{handleInputBlur(e)}}
 									></NacSearch>
 									<i className={`iconfont iconfangdajing pointer ${focused?"focused":""}`}></i>
@@ -118,8 +129,9 @@ const mapStateToProps=(state)=>{
 }
 const mapDispatchToProps=(dispatch)=>{
 	return {
-		handleInputFocus(){
-			dispatch(actionCreator.getList())
+		handleInputFocus(e,list){
+			(list.size===0)&&dispatch(actionCreator.getList());
+			// 相当于   if(list.size===0){dispatch(actionCreator.getList())}	
 			dispatch(actionCreator.searchFocus());
 		},
 		handleInputBlur(){
@@ -131,7 +143,10 @@ const mapDispatchToProps=(dispatch)=>{
 		handleMouseLeave(){
 			dispatch(actionCreator.mouseLeave());	
 		},
-		handleChangePage(page,totalPage){
+		handleChangePage(page,totalPage,spin){
+			// 通过ref 获取dom 的style值，截取度数
+			const originAngle=spin.style.transform.replace(/[^0-9]/ig,"");
+			spin.style.transform=`rotate(${Number(originAngle)+360}deg)`;
 			if(page<totalPage){
 				dispatch(actionCreator.changePage(page+1));	
 			}else{

@@ -30,6 +30,8 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     line-height: 1;
+    height:100%;
+    padding-top:58px;
   }
   ol, ul {
     list-style: none;
@@ -46,16 +48,13 @@ export const GlobalStyle = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
-  @font-face {
-    font-family: 'iconfont';  /* project id 1151963 */
-    src: url('//at.alicdn.com/t/font_1151963_g8jc0ugcnw.eot');
-    src: url('//at.alicdn.com/t/font_1151963_g8jc0ugcnw.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_1151963_g8jc0ugcnw.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_1151963_g8jc0ugcnw.woff') format('woff'),
-    url('//at.alicdn.com/t/font_1151963_g8jc0ugcnw.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_1151963_g8jc0ugcnw.svg#iconfont') format('svg');
-  }
+
   .pointer{
     cursor:pointer;
+  }
+  a {  text-decoration:none;out-line: none;}
+  a:hover, a:visited, a:link, a:active {
+    // 做到只设置一次，就可以使所有a标签的四种状态都和本身颜色保持一致，样式代码该怎么写
+    color: #ec6149;
   }
 `

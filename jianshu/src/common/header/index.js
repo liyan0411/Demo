@@ -18,6 +18,7 @@ import {
 	SearchInfoItem,
 	SearchInfoList
 } from "./style.js";
+import {actionCreator as loginActionCreator} from "../../pages/login/store"
 // const Header=(props)=>{]
 	// 无状态组件
 	// return (
@@ -74,7 +75,7 @@ class Header extends Component{
 		}
 	}
 	render(){
-		const {focused,handleInputFocus,handleInputBlur,list}=this.props;
+		const {focused,handleInputFocus,handleInputBlur,list,isLogin,handleLayout}=this.props;
 		return (
 			<div>
 				<HeaderWrapper>
@@ -85,7 +86,12 @@ class Header extends Component{
 					<Nav>
 						<NavItem className="left active pointer"><Link to="/">首页</Link></NavItem>
 						<NavItem className="left pointer">下载App</NavItem>
-						<NavItem className="right pointer">登录</NavItem>
+						{
+							isLogin?
+							<Link to="/"><NavItem className="right pointer" onClick={handleLayout}>退出</NavItem></Link>
+							:
+							<Link to="/login"><NavItem className="right pointer">登录</NavItem></Link>
+						}
 						<NavItem className="right">
 							<i className="iconfont iconAa pointer"></i>
 						</NavItem>
@@ -108,7 +114,10 @@ class Header extends Component{
 					</Nav>
 					<Addition>
 						<Button className="reg pointer">注册</Button>
-						<Button className="writting pointer"><i className="iconfont iconiconset0137"></i>写文章</Button>
+						<Link to="/write">
+							<Button className="writting pointer"><i className="iconfont iconiconset0137"></i>写文章</Button>
+						</Link>
+						
 					</Addition>
 				</HeaderWrapper>
 			</div>		
@@ -124,7 +133,7 @@ const mapStateToProps=(state)=>{
 		page:state.getIn(["header","page"]),
 		totalPage:state.getIn(["header","totalPage"]),
 		mouseIn:state.getIn(["header","mouseIn"]),
-
+		isLogin:state.getIn(["login","isLogin"]),
 	}	
 }
 const mapDispatchToProps=(dispatch)=>{
@@ -153,6 +162,9 @@ const mapDispatchToProps=(dispatch)=>{
 				dispatch(actionCreator.changePage(1));	
 			}
 			
+		},
+		handleLayout(){
+			dispatch(loginActionCreator.handleLayout());
 		}
 	}	
 }

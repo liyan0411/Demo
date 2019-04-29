@@ -4,8 +4,14 @@ import {ListItem,ListInfo,LoadMore} from "../style"
 import {actionCreator} from "../store"
 import {Link} from "react-router-dom"
 class List extends PureComponent {
-	toDetail(){
-		console.log(1)
+	toDetail(index){
+		console.log(index)
+		// this.context.router.push({
+		// 	path:"/detail",
+		// 	query:{
+		// 		id:index
+		// 	}
+		// })
 	}
 	render(){
 		const {articleList,getMoreList} = this.props;
@@ -15,8 +21,8 @@ class List extends PureComponent {
 				{
 					newArticleList.map((item,index)=>{
 						return (
-							<Link key={index} to="/detail">
-								<ListItem className="pointer" onClick={this.toDetail}>
+							<Link key={index} to={"/detail/"+index}>
+								<ListItem className="pointer" onClick={()=>this.toDetail(index)}>
 									<img className="pic" src={item.imgUrl} alt="img"/>
 									<ListInfo>
 										<h3 className="title">{index}:{item.title}</h3>

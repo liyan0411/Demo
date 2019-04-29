@@ -57,4 +57,9 @@ export const GlobalStyle = createGlobalStyle`
     // 做到只设置一次，就可以使所有a标签的四种状态都和本身颜色保持一致，样式代码该怎么写
     color: #ec6149;
   }
+  input[type=text], textarea {
+    -webkit-appearance: none;
+  }
+
+
 `

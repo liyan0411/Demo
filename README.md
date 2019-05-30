@@ -1,34 +1,34 @@
 # Demo
 
 
-1： 移动端图片上传裁切功能---phone_loadimg
+####	1： 移动端图片上传裁切功能---phone_loadimg
 
-应用到的知识点有：
-canvas :
-	clearRect() //清除画布   drawImage() //图片    
-	getImageData(x,y,w,h) 获取canvas中的画面
-	 //putImageData(imgData,x,y);向canvas中添加画面    getBoundingClientRect()
-	    这个方法返回一个矩形对象，包含四个属性：left、top、right和bottom。
-	    分别表示元素各边与页面上边和左边的距离。
+	应用到的知识点有：
+	canvas :
+		clearRect() //清除画布   drawImage() //图片    
+		getImageData(x,y,w,h) 获取canvas中的画面
+		//putImageData(imgData,x,y);向canvas中添加画面    getBoundingClientRect()
+				这个方法返回一个矩形对象，包含四个属性：left、top、right和bottom。
+				分别表示元素各边与页面上边和左边的距离。
 
-H5 input["file"]:
-	new FileReader()//读取本地图片文件并显示
+	H5 input["file"]:
+		new FileReader()//读取本地图片文件并显示
 
-移动端事件
-	touchstart    touchmove     touchend    (touches获取当前屏幕几指操作)
+	移动端事件
+		touchstart    touchmove     touchend    (touches获取当前屏幕几指操作)
 
-js
-	addEventListener()   事件绑定     阻止冒泡 stopPropagation()
+	js
+		addEventListener()   事件绑定     阻止冒泡 stopPropagation()
 
-实现的功能：上传图片，图片拖拽，选框拖拽、缩放，图片裁切
+	实现的功能：上传图片，图片拖拽，选框拖拽、缩放，图片裁切
 
-2.	FAST系统
+####	2：FAST系统
 
 
-####		项目介绍
-该系统是自己模仿手机app写的，包括新闻列表、时间选择器、FAQ、会议管理、预定页面，设置，个人中心等模块过程，只是用于练习，以边将来能快速开发。
+	项目介绍
+	该系统是自己模仿手机app写的，包括新闻列表、时间选择器、FAQ、会议管理、预定页面，设置，个人中心等模块过程，只是用于练习，以边将来能快速开发。
 
-####		项目页面
+  <!-- 项目页面 -->
 
 <!-- 
 ###			首页样式       __________________________________________个人中心样式_________________####
@@ -93,45 +93,45 @@ js
 <img src="https://i.loli.net/2017/10/24/59eeb41fb367b.jpg" width="50%" /> -->
 
 
-其他页面后续完成
+<!-- 其他页面后续完成 -->
 
 
 
 
-####		项目技术
+	项目技术
 
-nodejs的express框架，ejs的模板语法，amazeui的样式基础
-
-
-####		目录介绍
-
-bin文件夹，www是服务器js，启动服务器的设置在此处修改
-
-node_modules文件夹，项目需要的包(模块)，由npm install导入
-
-public文件夹,项目的静态文件
-
-routes文件夹,项目的路由，后台部分
-
-views文件夹,项目的页面文件夹
-
-app.js项目的配置文件**极其重要**
-
-package.json,项目的配置json
-
-READ.md,自己写的总结，用于GitHub项目概览
+	nodejs的express框架，ejs的模板语法，amazeui的样式基础
 
 
-####		项目启动
+	目录介绍
 
-1.	直接下载到安装了node的机器上，并npm和express已经配置好
-2.	cd到项目文件夹
-3.	如果node_modules文件夹不全，需要使用npm install导入包
-4.	使用npm start命令行启动项目
-5.	打开浏览器，访问localhost:3000即可打开页面，F12或使用手机查看(这里不细说，之前technology项目中有如何手机访问页面)	
+	bin文件夹，www是服务器js，启动服务器的设置在此处修改
 
-3.feicuixueyuan  
-extjs  后台管理系统
+	node_modules文件夹，项目需要的包(模块)，由npm install导入
+
+	public文件夹,项目的静态文件
+
+	routes文件夹,项目的路由，后台部分
+
+	views文件夹,项目的页面文件夹
+
+	app.js项目的配置文件**极其重要**
+
+	package.json,项目的配置json
+
+	READ.md,自己写的总结，用于GitHub项目概览
 
 
-time-axis-master    纯css 时间轴
+	项目启动
+
+	1.	直接下载到安装了node的机器上，并npm和express已经配置好
+	2.	cd到项目文件夹
+	3.	如果node_modules文件夹不全，需要使用npm install导入包
+	4.	使用npm start命令行启动项目
+	5.	打开浏览器，访问localhost:3000即可打开页面，F12或使用手机查看(这里不细说，之前technology项目中有如何手机访问页面)	
+
+####		3：feicuixueyuan  
+	extjs  后台管理系统
+
+
+	time-axis-master    纯css 时间轴

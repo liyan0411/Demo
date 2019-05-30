@@ -129,7 +129,8 @@
 	2.	cd到项目文件夹
 	3.	如果node_modules文件夹不全，需要使用npm install导入包
 	4.	使用npm start命令行启动项目
-	5.	打开浏览器，访问localhost:3000即可打开页面，F12或使用手机查看(这里不细说，之前technology项目中有如何手机访问页面)	
+	5.	打开浏览器，访问localhost:3000即可打开页面，F12或使用手机查看(这里不细说，之前technology项目
+	中有如何手机访问页面)	
 
 ####		3：feicuixueyuan  
 	extjs  后台管理系统

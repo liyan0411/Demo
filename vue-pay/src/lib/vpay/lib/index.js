@@ -1,8 +1,9 @@
 import pay from './pay'
-const zfcPassword = {
+const zfcPs = {
     install (Vue, options) {
+      // Vue.component("name",template)
         Vue.component('vpay', pay)
     }
 }
 
-export default zfcPassword
+export default zfcPs

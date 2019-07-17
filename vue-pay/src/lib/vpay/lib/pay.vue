@@ -242,7 +242,6 @@ li {
 	top: 0;
 	bottom: 0;
 	width: 100%;
-	max-width: 750px;
 	z-index: 998;
 	background: rgba(0, 0, 0, 0.5);
 	display: flex;
@@ -270,6 +269,7 @@ li {
 	width: 40px;
 	height: 40px;
 	background: url(./images/back.png) no-repeat center; */
+  cursor: pointer;
   position: absolute;
   content: "";
   left:20px;
@@ -428,7 +428,6 @@ li {
 	top: 0;
 	bottom: 0;
 	width: 100%;
-	max-width: 750px;
 	background: rgba(0, 0, 0, 0.6);
 	z-index: 999;
 }

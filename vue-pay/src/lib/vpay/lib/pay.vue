@@ -159,10 +159,40 @@ export default {
 				this.payStatus = 1;
 				this.$emit('input-end', this.password)
 			}
+		},
+		show (newVal, oldVal) {
+      let self=this;
+      // 记录滚动条位置
+      let scrollT=self.getScrollOffset();
+			if (newVal == true) {
+				let cssStr = `overflow: hidden;postion:fixed;top:${scrollT}px;`;
+				// document.getElementsByTagName('html')[0].style.cssText = cssStr;
+				document.body.style.cssText = cssStr;
+			} else {
+				let cssStr = "overflow: auto;position:static;";
+				// document.getElementsByTagName('html')[0].style.cssText = cssStr;
+        document.body.style.cssText = cssStr;
+        if(window.pageXOffset){
+          window.pageYOffset=scrollT;
+        }else{
+          document.documentElement.scrollTop=scrollT;
+          document.body.scrollTop=scrollT;
+        }
+			}
 		}
+
 	},
 
 	methods: {
+    // 获取页面滚动条 距离  兼容写法封装
+    getScrollOffset(){
+      if(window.pageXOffset){
+        return window.pageYOffset
+      }else{
+        return document.documentElement.scrollTop || document.body.scrollTop
+      }
+    },
+
 		// 点击密码操作
 		onKeyboard (key) {
 			// 截图前六位密码
@@ -269,21 +299,20 @@ li {
 	width: 40px;
 	height: 40px;
 	background: url(./images/back.png) no-repeat center; */
-  cursor: pointer;
-  position: absolute;
-  content: "";
-  left:20px;
-  top:14px;
-  display: inline-block;
-  height: 14px;
-  width: 14px;
-  border-width: 0 1px 1px 0;
-  border-color: #5f6773;
-  border-style: solid;
-  -webkit-transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
-  transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
-  transform: rotate(135deg)
-
+	cursor: pointer;
+	position: absolute;
+	content: "";
+	left: 20px;
+	top: 14px;
+	display: inline-block;
+	height: 14px;
+	width: 14px;
+	border-width: 0 1px 1px 0;
+	border-color: #5f6773;
+	border-style: solid;
+	-webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+	transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+	transform: rotate(135deg);
 }
 
 /* 密码框 */
@@ -325,7 +354,7 @@ li {
 }
 .forget-pass-btn {
 	color: #1890ff;
-  padding-right: 10px;
+	padding-right: 10px;
 }
 
 /* 键盘区 */

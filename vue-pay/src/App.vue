@@ -4,7 +4,7 @@
 		<h3 class="index-title">这里模拟的密码为：111111</h3>
 
 		<div class="submit-btn" @click="onShowPay">点击显示支付弹窗</div>
-
+<!-- <div style="height:500px;"></div> -->
 		<!--支付密码弹窗-->
 		<vpay
 			ref="pays"
